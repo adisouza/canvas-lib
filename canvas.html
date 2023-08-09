@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Css</title>
+    <script type="text/javascript" src="canvas.js"></script>
+    <style> 
+    *{
+        margin: 0%;
+        padding: 0%;
+        bottom: 0%;
+        width: 100%;
+        height: 100%;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="myCanvas" width="1920" height="1080" style="background:#FFFFFF"></canvas>
+<script>
+    
+
+
+
+var canvas = document.getElementById('myCanvas')
+var ctx = canvas.getContext('2d')
+ctx.scale('100vw','100vh')
+window.onload = async function (e) {
+_box = new Box()
+// _body = new Body()
+new Model({
+        title:'rectangule 1',
+        backgroundColor:"gray",
+        auX: 0,
+        auY: 0,
+        width:100,
+        height:50,
+        recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
+        recstroke:{ isStroke: false },
+        lable:'OEE',
+        fontColor:'green',
+        font:'3rem Arial',
+        textAlign:'left',
+        textBaseline:'middle',
+        direction:'ltr'
+})
+
+_box.model = {
+        title:'rectangule 2',
+        backgroundColor:"gray",
+        auX:110,
+        auY:0,
+        width:100,
+        height:50,
+        recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
+        recstroke:{ isStroke: false },
+        lable:'maquina',
+        fontColor:'green',
+        font:'6rem Arial',
+        textAlign:'left',
+        textBaseline:'middle',
+        direction:'ltr'
+}
+new Model(_box.model)
+
+_box.model={
+        title:'rectangule 1.1',
+        backgroundColor:"gray",
+        auX:0,
+        auY:60,
+        width:100,
+        height:50,
+        recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
+        recstroke:{ isStroke: false },
+        lable:'10%',
+        fontColor:'green',
+        font:'3rem Arial',
+        textAlign:'left',
+        textBaseline:'middle',
+        direction:'ltr'
+}
+
+
+new Model(_box.model)
+
+_box.model = {
+        title:'rectangule 2.1',
+        backgroundColor:"gray",
+        auX:110,
+        auY:60,
+        width:100,
+        height:50,
+        recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
+        recstroke:{ isStroke: false },
+        lable:'Bobinadeira',
+        fontColor:'green',
+        font:'6rem Arial',
+        textAlign:'left',
+        textBaseline:'middle',
+        direction:'ltr'
+    }
+
+
+var model = new Model()
+model.lables = ['A','B','C','D']
+model.auX = 0
+model.auY = 400
+model.width = 200
+model.height = 200
+model.font = '30px Arial'
+model.loadCells()
+console.log('void',model)
+
+var model2 = new Model({
+    title:'quadrado 1',
+    backgroundColor:'yellow',
+    lables : ['A','B','C','D'],
+    auX :0,
+    auY : 800,
+    axle:'y',
+    width : 200,
+    height : 200,
+    font :'30px Arial',
+    fontColor:'black'
+    })
+    console.log('void',model2)
+
+//  _body.boxes = [
+//             {
+//             rect: {
+//                 style: 'yellow',
+//                 auX: 10,
+//                 auY: 200,
+//                 width: 100,
+//                 height: 50
+//             },
+//             text: {
+//                 lable: 'helloooo',
+//                 style: 'green',
+//                 auX: 30,
+//                 auY: 250,
+//                 font:'3rem Arial'
+
+//             }
+//         },
+//         {
+//             rect: {
+//                 style: 'yellow',
+//                 auX: 10,
+//                 auY: 100,
+//                 width: 100,
+//                 height: 50
+//             },
+//             text: {
+//                 lable: 'helloooo',
+//                 style: 'green',
+//                 auX: 30,
+//                 auY: 150,
+//                 font:'3rem Arial'
+
+//             }
+//          },
+//          {
+//             rect: {
+//                 style: 'yellow',
+//                 auX: 10,
+//                 auY: 300,
+//                 width: 100,
+//                 height: 50
+//             },
+//             text: {
+//                 lable: 'helloooo',
+//                 style: 'green',
+//                 auX: 30,
+//                 auY: 350,
+//                 font:'3rem Arial'
+
+//             }
+//          }
+//     ];
+  
+//     console.log(_body)
+// _body.addRangeBox()
+
+}
+
+
+
+// // window.onload = function(e){ 
+// //     loadCanvas(e)
+// // }
+
+// function loadCanvas(e){
+//     e.preventDefault()
+//     loadBoxBody()
+//     loadBoxHeader()
+//     loadContentHeader()
+//     loadBoxMain()
+
+// }
+
+// function loadBoxBody(){
+//     ctx.fillStyle = 'white';
+//     ctx.fillRect(0,0,canvas.width,canvas.height)
+// }
+
+// function loadBoxHeader(){
+//     ctx.fillStyle = 'blue'
+//     ctx.fillRect(0,0,canvas.width,50)
+// }
+
+// function loadContentHeader(){
+//     var logo = new Image()
+//     logo.src = "Linux.png";
+//     ctx.drawImage(logo, 0, 10, 50, 40);
+//     ctx.fillStyle = 'white';
+//     ctx.font = '44px Arial';
+//     ctx.textAlign = 'left';
+//     ctx.fillText('Maquina',960,50)
+// }
+
+// function loadBoxMain(){
+//     ctx.fillStyle = 'white';
+//     ctx.fillRect(0,60,canvas.width,canvas.height)
+//     loadHeaderColumns(['HORA','PADRAO ENGENHARIA','REALIZADO','QTD. REFUGO','REFUGO','EFICIENCIA'])
+// }
+
+// function loadHeaderColumns(_columns = [],_height = 60){
+//     loaColumns(_columns,_height)
+// }
+// function loaColumns(_columns = [],_height = 60){
+//     if(_columns.length > 0){
+//         var _cellSize = canvas.width / _columns.length
+//         var _startPosition = 0;
+//         _columns.forEach(element => {
+//             //cria box
+//             ctx.fillStyle = 'blue'
+//             ctx.fillRect(_startPosition,_height,_cellSize-10,_height)
+//             //cria rotulo
+//             ctx.fillStyle = 'white';
+//             ctx.font = '24px Arial';
+//             ctx.textAlign = 'left';
+//             ctx.baseLine = 'middle';
+//             ctx.fillText(element,_startPosition,(_height-10)*2)
+//             _startPosition += _cellSize
+//         });
+//     }
+// // ctx.fillStyle = 'green'
+// // ctx.fillRect(0,60,310,50)
+// // ctx.fillStyle = 'green'
+// // ctx.fillRect(320,60,310,50)
+// // ctx.fillStyle = 'green'
+// // ctx.fillRect(640,60,310,50)
+// // ctx.fillStyle = 'green'
+// // ctx.fillRect(960,60,310,50)
+// // ctx.fillStyle = 'green'
+// // ctx.fillRect(1280,60,310,50)
+// // ctx.fillStyle = 'green'
+// // ctx.fillRect(1600,60,310,50)
+
+// }
+
+// function loadContentColumns(_columns = [],_height = 60){
+//     loaColumns(_columns,_height)
+// }
+
+</script>    
+</body>
+</html>
