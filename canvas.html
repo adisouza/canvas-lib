@@ -104,10 +104,11 @@ _box.model = {
 var model = new Model()
 model.lables = ['A','B','C','D']
 model.auX = 0
-model.auY = 400
-model.width = 200
-model.height = 200
+model.auY = 200
+model.width = 100
+model.height = 10
 model.font = '30px Arial'
+model.spaceAround = 50
 model.loadCells()
 console.log('void',model)
 
@@ -116,12 +117,13 @@ var model2 = new Model({
     backgroundColor:'yellow',
     lables : ['A','B','C','D'],
     auX :0,
-    auY : 800,
+    auY : 500,
     axle:'y',
-    width : 200,
-    height : 200,
-    font :'30px Arial',
-    fontColor:'black'
+    width : 10,
+    height : 100,
+    font :'12px Arial',
+    fontColor:'black',
+    spaceAround: 50
     })
     console.log('void',model2)
 

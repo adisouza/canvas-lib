@@ -33,6 +33,7 @@ model = new Model();
     lastWidth = 0 ;
     lastHeight = 0;
     axle = 'x'; 
+    spaceAround = 10;
 
     constructor(_model = {}){
         InitializedCanvas();
@@ -63,6 +64,7 @@ model = new Model();
         this.lastHeight = this.getHeight();
         console.log('LastSize', 'width:' +this.lastWidth+', height:'+this.lastHeigth)
         this.axle = _model?.axle  ? _model?.axle : 'x';
+        this.spaceAround = _model?.spaceAround ? _model?.spaceAround : 10;
 console.log('auxleCons',this.axle)
             if(this.lables?.length > 0 ){
                 this.loadCells();
@@ -96,7 +98,7 @@ console.log('auxleCons',this.axle)
         lstBox.push(this);
         console.log('adBox',lstBox);
     }
-    loadCells(spaceAround = 10,Model = this) {
+    loadCells(Model = this) {
         let _cellSize 
         let _startPosition 
         console.log('axle',Model?.axle)
@@ -107,14 +109,14 @@ console.log('auxleCons',this.axle)
             Model.lables.forEach(element => {
                 //cria box
                 ctx.fillStyle = Model.backgroundColor
-                ctx.fillRect(_startPosition, Model.auY, _cellSize, Model.height)
+                ctx.fillRect(_startPosition, Model.auY,_cellSize , Model.height)
                 //cria rotulo
                 ctx.fillStyle = Model.fontColor;
                 ctx.font = Model.font;
                 ctx.textAlign = Model.textAlign;
                 ctx.baseLine = Model.textBaseline;
-                ctx.fillText(element, _startPosition, (Model.auY) + spaceAround)
-                _startPosition += _cellSize
+                ctx.fillText(element, _startPosition, (Model.auY) +this.spaceAround)
+                _startPosition += _cellSize + this.spaceAround
                // _afterHeight = Model.height + spaceAround
             });
         }else
@@ -124,14 +126,14 @@ console.log('auxleCons',this.axle)
              Model.lables.forEach(element => {
                 //cria box
                 ctx.fillStyle = Model.backgroundColor
-                ctx.fillRect(Model.auX, _startPosition, _cellSize, Model.height)
+                ctx.fillRect(Model.auX, _startPosition, Model.width, _cellSize)
                 //cria rotulo
                 ctx.fillStyle = Model.fontColor;
                 ctx.font = Model.font;
                 ctx.textAlign = Model.textAlign;
                 ctx.baseLine = Model.textBaseline;
-                ctx.fillText(element, Model.auX, (_startPosition) + spaceAround)
-                _startPosition += _cellSize
+                ctx.fillText(element, Model.auX, (_startPosition) + this.spaceAround)
+                _startPosition += _cellSize + this.spaceAround
                // _afterHeight = Model.height + spaceAround
             });
             }
