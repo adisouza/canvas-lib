@@ -22,33 +22,20 @@
 
 
 
-var canvas = document.getElementById('myCanvas')
-var ctx = canvas.getContext('2d')
+ canvas = document.getElementById('myCanvas')
+ctx = canvas.getContext('2d')
 ctx.scale('100vw','100vh')
-window.onload = async function (e) {
-_box = new Box()
-// _body = new Body()
-new Model({
-        title:'rectangule 1',
-        backgroundColor:"gray",
-        auX: 0,
-        auY: 0,
-        width:100,
-        height:50,
-        recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
-        recstroke:{ isStroke: false },
-        lable:'OEE',
-        fontColor:'green',
-        font:'3rem Arial',
-        textAlign:'left',
-        textBaseline:'middle',
-        direction:'ltr'
-})
 
+
+window.onload = async function (e) {
+    //create a custom component
+let _box = new Box()
+_BoxModel = new Model()
+//single Modelfill box without lable
 _box.model = {
         title:'rectangule 2',
-        backgroundColor:"gray",
-        auX:110,
+        backgroundColor:"brown",
+        auX:0,
         auY:0,
         width:100,
         height:50,
@@ -63,11 +50,31 @@ _box.model = {
 }
 new Model(_box.model)
 
-_box.model={
+var obj = {
+        title:'rectangule 2',
+        backgroundColor:"violet",
+        auX:110,
+        auY:0,
+        width:100,
+        height:50,
+        recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
+        recstroke:{ isStroke: false },
+        lable:'maquina',
+        fontColor:'green',
+        font:'6rem Arial',
+        textAlign:'left',
+        textBaseline:'middle',
+        direction:'ltr'
+}
+new Model(obj)
+//retangulo com texto
+new Model( {
         title:'rectangule 1.1',
         backgroundColor:"gray",
         auX:0,
-        auY:60,
+        auY:50,
+        textauX:0,
+        textauY:100,
         width:100,
         height:50,
         recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
@@ -80,50 +87,62 @@ _box.model={
         direction:'ltr'
 }
 
-
-new Model(_box.model)
-
+)
+//retangulo com texto
 _box.model = {
         title:'rectangule 2.1',
         backgroundColor:"gray",
         auX:110,
-        auY:60,
+        auY:50,
+        textauX:110,
+        textauY:100,
         width:100,
         height:50,
         recfill:{ isfill: false, obj: null, fillRule: 'nonzero' },
         recstroke:{ isStroke: false },
-        lable:'Bobinadeira',
+        lable:'duas palavras',
         fontColor:'green',
-        font:'6rem Arial',
+        font:'3rem Arial',
         textAlign:'left',
         textBaseline:'middle',
-        direction:'ltr'
+        direction:'ltr',
+        spaceLine:10
     }
+   new Model(_box.model)
 
-
+// multiple lables with a built empty in axle X
 var model = new Model()
-model.lables = ['A','B','C','D']
+model.title = 'boxWithALotLables'
+model.backgroundColor = 'blue'
+model.lables = ['A','B','C','D','E']
 model.auX = 0
 model.auY = 200
-model.width = 100
-model.height = 10
+model.width = 400
+model.height = 100
+model.textauX= 10
+model.textauY = 250
 model.font = '30px Arial'
-model.spaceAround = 50
-model.loadCells()
-console.log('void',model)
+model.fontColor = 'green'
+model.spaceAround = 10
+model.axle = 'x'
+model.loadCells(model)
+console.log('voidmodel',model)
 
+// multiple lables with a constructor in axle y
 var model2 = new Model({
     title:'quadrado 1',
     backgroundColor:'yellow',
     lables : ['A','B','C','D'],
     auX :0,
-    auY : 500,
-    axle:'y',
-    width : 10,
+    auY : 400,
+    textauX : 30,
+    textauY : 400,
+    axle : 'y',
+    width : 100,
     height : 100,
     font :'12px Arial',
     fontColor:'black',
-    spaceAround: 50
+    spaceAround: 10
     })
     console.log('void',model2)
 
